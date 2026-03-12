@@ -4,8 +4,8 @@
 
 
 int main(){
-    std::cout << "Hello World" << std::endl;    
-    say_hi();
+    std::cout << "Hello World\n";
+    std::cout << add(1,2) << std::endl;
 
     return 0;
 }
