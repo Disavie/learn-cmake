@@ -1,4 +1,5 @@
-CMakeFiles/test.dir/main.cpp.o: /home/djs/projects/learn-cmake/main.cpp \
+test-lib/CMakeFiles/testlib.dir/utils.cpp.o: \
+ /home/djs/projects/learn-cmake/test-lib/utils.cpp \
  /usr/include/stdc-predef.h /usr/include/c++/13/iostream \
  /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \

@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/djs/projects/learn-cmake/build/CMakeFiles /home/djs/projects/learn-cmake/build//CMakeFiles/progress.marks
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
+	cd /home/djs/projects/learn-cmake/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/djs/projects/learn-cmake/build/CMakeFiles /home/djs/projects/learn-cmake/build/test-lib//CMakeFiles/progress.marks
+	cd /home/djs/projects/learn-cmake/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test-lib/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/djs/projects/learn-cmake/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 clean
+	cd /home/djs/projects/learn-cmake/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test-lib/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,68 +103,56 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 preinstall
+	cd /home/djs/projects/learn-cmake/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test-lib/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 preinstall
+	cd /home/djs/projects/learn-cmake/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test-lib/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/djs/projects/learn-cmake/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named BabysFirst
+# Convenience name for target.
+test-lib/CMakeFiles/testlib.dir/rule:
+	cd /home/djs/projects/learn-cmake/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test-lib/CMakeFiles/testlib.dir/rule
+.PHONY : test-lib/CMakeFiles/testlib.dir/rule
 
-# Build rule for target.
-BabysFirst: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 BabysFirst
-.PHONY : BabysFirst
-
-# fast build rule for target.
-BabysFirst/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/BabysFirst.dir/build.make CMakeFiles/BabysFirst.dir/build
-.PHONY : BabysFirst/fast
-
-#=============================================================================
-# Target rules for targets named testlib
-
-# Build rule for target.
-testlib: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 testlib
+# Convenience name for target.
+testlib: test-lib/CMakeFiles/testlib.dir/rule
 .PHONY : testlib
 
 # fast build rule for target.
 testlib/fast:
-	$(MAKE) $(MAKESILENT) -f test-lib/CMakeFiles/testlib.dir/build.make test-lib/CMakeFiles/testlib.dir/build
+	cd /home/djs/projects/learn-cmake/build && $(MAKE) $(MAKESILENT) -f test-lib/CMakeFiles/testlib.dir/build.make test-lib/CMakeFiles/testlib.dir/build
 .PHONY : testlib/fast
 
-main.o: main.cpp.o
-.PHONY : main.o
+utils.o: utils.cpp.o
+.PHONY : utils.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/BabysFirst.dir/build.make CMakeFiles/BabysFirst.dir/main.cpp.o
-.PHONY : main.cpp.o
+utils.cpp.o:
+	cd /home/djs/projects/learn-cmake/build && $(MAKE) $(MAKESILENT) -f test-lib/CMakeFiles/testlib.dir/build.make test-lib/CMakeFiles/testlib.dir/utils.cpp.o
+.PHONY : utils.cpp.o
 
-main.i: main.cpp.i
-.PHONY : main.i
+utils.i: utils.cpp.i
+.PHONY : utils.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/BabysFirst.dir/build.make CMakeFiles/BabysFirst.dir/main.cpp.i
-.PHONY : main.cpp.i
+utils.cpp.i:
+	cd /home/djs/projects/learn-cmake/build && $(MAKE) $(MAKESILENT) -f test-lib/CMakeFiles/testlib.dir/build.make test-lib/CMakeFiles/testlib.dir/utils.cpp.i
+.PHONY : utils.cpp.i
 
-main.s: main.cpp.s
-.PHONY : main.s
+utils.s: utils.cpp.s
+.PHONY : utils.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/BabysFirst.dir/build.make CMakeFiles/BabysFirst.dir/main.cpp.s
-.PHONY : main.cpp.s
+utils.cpp.s:
+	cd /home/djs/projects/learn-cmake/build && $(MAKE) $(MAKESILENT) -f test-lib/CMakeFiles/testlib.dir/build.make test-lib/CMakeFiles/testlib.dir/utils.cpp.s
+.PHONY : utils.cpp.s
 
 # Help Target
 help:
@@ -174,11 +162,10 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... BabysFirst"
 	@echo "... testlib"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... utils.o"
+	@echo "... utils.i"
+	@echo "... utils.s"
 .PHONY : help
 
 
@@ -190,6 +177,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/djs/projects/learn-cmake/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
