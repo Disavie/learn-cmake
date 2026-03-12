@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/BabysFirst.dir/main.cpp.o -o BabysFirst  test-lib/libtestlib.a 
